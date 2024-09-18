@@ -17,10 +17,7 @@ app.get("/ourdata", async (req, resp) => {
   console.log(data);
 });
 
-
-
 // code for inserting data into mongodb
-
 
 const db_connect ='mongodb+srv://nitin04:atlasdb@ecom.pppii.mongodb.net/'
 mongoose.connect(db_connect,{
@@ -35,8 +32,6 @@ mongoose.connect(db_connect,{
 })
 
 
-
-
 // mongoose.connect(db_connect,
 //   {
 //     useNewUrlParser: true,
@@ -45,7 +40,6 @@ mongoose.connect(db_connect,{
 //     useFindAndModify: false
 //   }
 // )
-
 
 //schema for products
 
@@ -105,4 +99,5 @@ app.delete("/delete", async (req, resp) => {
 });
 
 app.listen(5190);
+console.log('5190');
 
