@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-
 import axios from "axios";
 
-const OurProducts = () => {
+const Home = () => {
   const [datas, setdata] = useState([]);
 
   useEffect(() => {
@@ -16,10 +15,12 @@ const OurProducts = () => {
   }, []);
 
   if (datas.length === 0) {
-    return <div>Loading...</div>;
+    return <div>
+      <h1> you encountered an error</h1>
+    </div>;
   }
 
-  return (
+  return ( 
     <>
       
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -48,19 +49,8 @@ const OurProducts = () => {
   );
 };
 
-export default OurProducts;
+
+export default Home;
 
 
-// import React from 'react'
-
-// const OurProducts = () => {
-//   return (
-//     <div>
-//     <h1>nitin chakrawarti</h1>
-      
-//     </div>
-//   )
-// }
-
-// export default OurProducts
 

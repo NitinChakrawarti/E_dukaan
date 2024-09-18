@@ -10,6 +10,7 @@ app.use(express.json());
 
 // code for fetching data from mongodb
 
+
 app.get("/ourdata", async (req, resp) => {
   let data = await getdata();
   data = await data.find({}).toArray();
