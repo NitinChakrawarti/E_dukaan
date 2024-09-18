@@ -1,8 +1,19 @@
+const dotenv = require("dotenv");
+
 const express = require("express");
-const getdata = require("./mongodb");
+const getdata = require("./db/mongodb");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
+
+// env config file is here 
+
+dotenv.config({path: './config.env'});
+
+require('./db/connection');
+
+// port name from variable is here  
+const PORT = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
@@ -18,48 +29,23 @@ app.get("/ourdata", async (req, resp) => {
 });
 
 // code for inserting data into mongodb
-
-const db_connect ='mongodb+srv://nitin04:atlasdb@ecom.pppii.mongodb.net/'
-mongoose.connect(db_connect,{
-  dbName:'products'
-})
-.then(()=>{
-  console.log("connected");
-}
-)
-.catch((err)=>{
-  console.log(`you got an error ${err}`);
-})
-
-
-// mongoose.connect(db_connect,
-//   {
-//     useNewUrlParser: true,
-//     useCreateIndex: true,
-//     useUnifiedTopology: true,
-//     useFindAndModify: false
-//   }
-// )
-
-//schema for products
-
 const pschema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
-  price: {
-    type: Number,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  image: {
-    type: String,
-    required: true,
-  },
+  // price: {
+  //   type: Number,
+  //   required: true,
+  // },
+  // description: {
+  //   type: String,
+  //   required: true,
+  // },
+  // image: {
+  //   type: String,
+  //   required: true,
+  // },
 });
 
 
@@ -69,9 +55,9 @@ app.post("/create", async (req, resp) => {
   const { name, price, description, image } = req.body;
   const newItem = new item({
     name,
-    price,
-    description,
-    image
+    // price,
+    // description,
+    // image
   });
   try {
     const savedItem = await newItem.save();
@@ -85,9 +71,9 @@ app.delete("/delete", async (req, resp) => {
   const { name, price, description, image } = req.body;
   const newItem = new item({
     name,
-    price,
-    description,
-    image
+    // price,
+    // description,
+    // image
   });
 
   try {
@@ -98,6 +84,6 @@ app.delete("/delete", async (req, resp) => {
   }
 });
 
-app.listen(5190);
-console.log('5190');
+app.listen(PORT);
+console.log(`server is running at port no http://localhost:${PORT}/ourdata`);
 

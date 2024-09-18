@@ -3,25 +3,25 @@ import axios from "axios";
 
 const Additem = () => {
   const [name, setname] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-  const [image, setImageLink] = useState("");
+  // const [price, setPrice] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [image, setImageLink] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newItem = {
       name,
-      price,
-      description,
-      image,
+      // price,
+      // description,
+      // image,
     };
     try {
       await axios.post("http://localhost:5190/create", newItem);
       alert("Item added successfully");
       setname("");
-      setPrice("");
-      setDescription("");
-      setImageLink("");
+      // setPrice("");
+      // setDescription("");
+      // setImageLink("");
     } catch (error) {
       console.error("There was an error adding the item!", error);
     }
@@ -44,22 +44,22 @@ const Additem = () => {
                 className="w-full px-3 py-1 border rounded-md"
               />
             </div>
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <label className="block text-[color:var(--color6)] text-lg text-bold pb-2">Price:</label>
               <input
                 type="number"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                required
+                // required
                 className="w-full px-3 py-1 border rounded-md"
               />
-            </div>
-            <div className="mb-4">
+            </div> */}
+            {/* <div className="mb-4">
               <label className="block text-[color:var(--color6)] text-lg text-bold pb-2">Description:</label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                required
+                // required
                 className="w-full px-3 py-1 border rounded-md"
               />
             </div>
@@ -69,10 +69,10 @@ const Additem = () => {
                 type="text"
                 value={image}
                 onChange={(e) => setImageLink(e.target.value)}
-                required
+                // required
                 className="w-full px-3 py-1 border rounded-md"
               />
-            </div>
+            </div> */}
             <button
               type="submit"
               className="w-[70%] ml-16 text-lg bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
