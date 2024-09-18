@@ -10,7 +10,6 @@ app.use(express.json());
 
 // code for fetching data from mongodb
 
-
 app.get("/ourdata", async (req, resp) => {
   let data = await getdata();
   data = await data.find({}).toArray();
@@ -18,9 +17,35 @@ app.get("/ourdata", async (req, resp) => {
   console.log(data);
 });
 
+
+
 // code for inserting data into mongodb
 
-mongoose.connect('mongodb://localhost:27017/Ecom')
+
+const db_connect ='mongodb+srv://nitin04:atlasdb@ecom.pppii.mongodb.net/'
+mongoose.connect(db_connect,{
+  dbName:'products'
+})
+.then(()=>{
+  console.log("connected");
+}
+)
+.catch((err)=>{
+  console.log(`you got an error ${err}`);
+})
+
+
+
+
+// mongoose.connect(db_connect,
+//   {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useUnifiedTopology: true,
+//     useFindAndModify: false
+//   }
+// )
+
 
 //schema for products
 
@@ -43,9 +68,28 @@ const pschema = new mongoose.Schema({
   },
 });
 
+
 const item = mongoose.model('products', pschema);
 
 app.post("/create", async (req, resp) => {
+  const { name, price, description, image } = req.body;
+  const newItem = new item({
+    name,
+    price,
+    description,
+    image
+  });
+
+
+  try {
+    const savedItem = await newItem.save();
+    resp.status(201).json(savedItem);
+  } catch (error) {
+    resp.status(500).json({ message: 'Error saving item', error });
+  }
+});
+
+app.delete("/delete", async (req, resp) => {
   const { name, price, description, image } = req.body;
   const newItem = new item({
     name,
