@@ -79,8 +79,6 @@ app.post("/create", async (req, resp) => {
     description,
     image
   });
-
-
   try {
     const savedItem = await newItem.save();
     resp.status(201).json(savedItem);
@@ -107,3 +105,4 @@ app.delete("/delete", async (req, resp) => {
 });
 
 app.listen(5190);
+
