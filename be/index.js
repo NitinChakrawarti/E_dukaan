@@ -8,7 +8,7 @@ const cors = require("cors");
 
 // env config file is here 
 
-dotenv.config({path: './config.env'});
+dotenv.config({ path: './config.env' });
 
 require('./db/connection');
 
@@ -17,7 +17,6 @@ const PORT = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
-
 
 // code for fetching data from mongodb
 
@@ -29,6 +28,8 @@ app.get("/ourdata", async (req, resp) => {
 });
 
 // code for inserting data into mongodb
+
+
 const pschema = new mongoose.Schema({
   name: {
     type: String,
@@ -48,7 +49,6 @@ const pschema = new mongoose.Schema({
   // },
 });
 
-
 const item = mongoose.model('products', pschema);
 
 app.post("/create", async (req, resp) => {
@@ -67,23 +67,18 @@ app.post("/create", async (req, resp) => {
   }
 });
 
-app.delete("/delete", async (req, resp) => {
-  const { name, price, description, image } = req.body;
-  const newItem = new item({
-    name,
-    // price,
-    // description,
-    // image
-  });
+    // delete many code is here 
 
-  try {
-    const savedItem = await newItem.save();
-    resp.status(201).json(savedItem);
-  } catch (error) {
-    resp.status(500).json({ message: 'Error saving item', error });
-  }
-});
+// const deldata = async () => {
+
+//   let data = await getdata();
+//   let result = await data.deleteOne({
+//     name: "nitin"
+//   })
+//   console.log(result);
+// }
+
+// deldata();
 
 app.listen(PORT);
 console.log(`server is running at port no http://localhost:${PORT}/ourdata`);
-
