@@ -53,7 +53,7 @@ const OurProducts = () => {
                   {" "}
                   <div className="w-[100%] h-[80%]  rounded-lg  grid grid-cols-6 gap-0 border-4 border-zinc-950">
                     <div className="text-center text-2xl font-bold pt-3 border-r-4 border-zinc-950 pb-5  ">
-                      <h1>{index}</h1>
+                      <h1>{index + 1}</h1>
                     </div>
                     <div className="text-center text-2xl font-bold pt-3 border-r-4 border-zinc-950 pb-5  ">
                       <h1>{product.name} </h1>
