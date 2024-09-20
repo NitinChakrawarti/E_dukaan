@@ -7,7 +7,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5190/ourdata")
+      .get(`${process.env.REACT_APP_BACKENDAPI}/ourdata`)
       .then(response => {
         setdata(response.data);
       })

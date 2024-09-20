@@ -16,7 +16,7 @@ const Additem = () => {
       // image,
     };
     try {
-      await axios.post("http://localhost:5190/create", newItem);
+      await axios.post(`${process.env.REACT_APP_BACKENDAPI}/create`, newItem);
       alert("Item added successfully");
       setname("");
       // setPrice("");
