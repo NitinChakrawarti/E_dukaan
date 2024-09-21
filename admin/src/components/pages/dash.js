@@ -1,41 +1,34 @@
 import React from "react";
-import Layout from "./layout.js";
+import Layout from "../layout.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
-  Home,
-  Login,
-  SideBar,
   Additem,
   OurProducts,
   Dashboard,
   Orders,
-} from "./allcompo.js";
+} from "../allcompo.js";
 
 
 function Dash() {
   const router = createBrowserRouter([
     {
-        path:"/home",
-        element:<Home />,
-    },
-    {
       path: "/",
       element:<Layout />,
       children: [
         {
-          path: "/products",
+          path:"/products",
           element: <OurProducts />,
         },
         {
-          path: "/additem",
+          path:"/additem",
           element: <Additem />,
         },
         {
-          path: "/dashboard",
+          path:"/",
           element: <Dashboard />,
         },
         {
-          path: "/orders",
+          path:"/orders",
           element: <Orders />,
         },
       ],

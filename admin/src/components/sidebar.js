@@ -16,7 +16,7 @@ const SideBar = () => {
         </div>
         <div className="w-[100%]  font-light flex-col flex gap-1 pl-2 justify-items-center pt-10 border-t-4 border-[color:var(--color7)]">
           <Link
-            to="/dashboard"
+            to="/"
             className={
               active
                 ? "bg-[color:var(--color2)] text-[color:var(--color6)] font-bold text-lg py-3  mr-3 px-1 rounded-full text-center"

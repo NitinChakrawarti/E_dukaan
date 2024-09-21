@@ -1,9 +1,9 @@
 import React from "react";
-import Dash from "./dash.js";
+import Home from "./components/home.js"
 const App = () => {
   return (
     <>
-      <Dash />
+      <Home />
     </>
   );
 };

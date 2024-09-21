@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { log10 } from "chart.js/helpers";
+import Loader from "./loader";
 
 const OurProducts = () => {
   const [products, setProducts] = useState([]);
@@ -14,7 +15,9 @@ const OurProducts = () => {
   }, []);
 
   if (products.length === 0) {
-    return <div>Loading...</div>;
+    return <div class="flex items-center justify-center h-screen w-[80%]">
+        <Loader />
+      </div>;
   }
 
 

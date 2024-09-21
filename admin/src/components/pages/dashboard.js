@@ -1,9 +1,12 @@
 import React from "react";
-
+import Loader from "./loader";
 const Dashboard = () => {
   return (
     <div className="bg-[color:var(--color2)] w-[85%]">
-      <h1>this is dashboard</h1>
+       <div class="flex items-center justify-center h-screen w-[80%]">
+        <Loader />
+        <h1>coming soon</h1>
+      </div>;
     </div>
   );
 };

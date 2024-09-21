@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import Loader from "./loader";
 
 const Home = () => {
   const [datas, setdata] = useState([]);
@@ -15,8 +16,9 @@ const Home = () => {
   }, []);
 
   if (datas.length === 0) {
-    return <div>
-      <h1> you encountered an error</h1>
+    return <div className="relative z-10 w-full justify-center flex items-center h-[600px]">
+     
+     <Loader/>
     </div>;
   }
 
