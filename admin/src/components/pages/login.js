@@ -5,7 +5,7 @@ import Dash from "./dash.js";
 export default function Login () {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [isLogged, setIsLogged] = useState(true);
+    const [isLogged, setIsLogged] = useState(false);
     const admin = [
         {
             user: "nitin",
