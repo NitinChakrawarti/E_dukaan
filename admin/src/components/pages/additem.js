@@ -3,9 +3,9 @@ import axios from "axios";
 
 const Additem = () => {
   const [name, setname] = useState("");
-  // const [price, setPrice] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [image, setImageLink] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImageLink] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,15 +17,16 @@ const Additem = () => {
     };
     try {
       await axios.post(`${process.env.REACT_APP_BACKENDAPI}/create`, newItem);
-      alert("Item added successfully");
       setname("");
       // setPrice("");
       // setDescription("");
       // setImageLink("");
+      alert("Item added successfully");
+
     } catch (error) {
       console.error("There was an error adding the item!", error);
     }
-    console.log(newItem);
+    // console.log(newItem);
   };
 
   return (

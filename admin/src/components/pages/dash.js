@@ -4,8 +4,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
   Additem,
   OurProducts,
-  Dashboard,
-  Orders,
 } from "../allcompo.js";
 
 
@@ -16,21 +14,13 @@ function Dash() {
       element:<Layout />,
       children: [
         {
-          path:"/products",
+          path:"/",
           element: <OurProducts />,
         },
         {
           path:"/additem",
           element: <Additem />,
-        },
-        {
-          path:"/",
-          element: <Dashboard />,
-        },
-        {
-          path:"/orders",
-          element: <Orders />,
-        },
+        }
       ],
     },
   ]);

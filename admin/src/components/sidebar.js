@@ -15,24 +15,9 @@ const SideBar = () => {
           Welcome {"`USER`"}
         </div>
         <div className="w-[100%]  font-light flex-col flex gap-1 pl-2 justify-items-center pt-10 border-t-4 border-[color:var(--color7)]">
+
           <Link
             to="/"
-            className={
-              active
-                ? "bg-[color:var(--color2)] text-[color:var(--color6)] font-bold text-lg py-3  mr-3 px-1 rounded-full text-center"
-                : "text-center text-[color:var(--color2)] font-bold text-lg  py-3 px-1"
-            }
-            onClick={() => {
-              setActive(true);
-              setActive1(false);
-              setActive2(false);
-              setActive3(false);
-            }}
-          >
-            <h1>Dashboard</h1>
-          </Link>
-          <Link
-            to="/products"
             className={
               active1
                 ? "bg-[color:var(--color2)] text-[color:var(--color6)] font-bold text-lg py-3  mr-3 px-1 rounded-full text-center"
@@ -47,22 +32,7 @@ const SideBar = () => {
           >
             <h1>Live Products</h1>
           </Link>
-          <Link
-            to="/orders"
-            className={
-              active2
-                ? "bg-[color:var(--color2)] text-[color:var(--color6)] font-bold text-lg py-3  mr-3 px-1 rounded-full text-center"
-                : "text-center text-[color:var(--color2)] font-bold text-lg  py-3 px-1"
-            }
-            onClick={() => {
-              setActive2(true);
-              setActive(false);
-              setActive1(false);
-              setActive3(false);
-            }}
-          >
-            <h1>Orders</h1>
-          </Link>
+
           <Link
             to="/additem"
             className={
@@ -82,7 +52,7 @@ const SideBar = () => {
         </div>
         <div className="flex flex-col justify-around gap-0 mt-48">
           <div className="text-center text-[color:var(--color3)] ">
-            <p>
+            <div>
               <h1>Help</h1>
               <h1>
                 contact us <br />
@@ -91,7 +61,7 @@ const SideBar = () => {
               <h1 className="cursor">
                 Log out <br />
               </h1>
-            </p>
+            </div>
           </div>
           <div className="text-center text-[color:var(--color3)] font-bold text-sm pt-4 flex flex-col justify-end">
             <h1>© 2024 Ecom-Partner</h1>
