@@ -5,7 +5,7 @@ const db_connect = process.env.MONGODB_PRODUCTS_URL;
 const client = new MongoClient(db_connect);
 async function getdata (){
     let result = await client.connect();
-    let db = result.db('products');
+    let db = result.db('edukaan');
     let dbc = db.collection('products');
    return dbc;
 }
