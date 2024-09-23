@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const db_connect = process.env.MONGODB_PRODUCTS_URL;
 mongoose.connect(db_connect, {
-    dbName: 'products'
+    dbName: 'edukaan'
 })
     .then(() => {
         console.log("connected");
