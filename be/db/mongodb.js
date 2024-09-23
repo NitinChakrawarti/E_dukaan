@@ -6,7 +6,7 @@ const client = new MongoClient(db_connect);
 async function getdata (){
     let result = await client.connect();
     let db = result.db('edukaan');
-    let dbc = db.collection('ecom');
+    let dbc = db.collection('products');
    return dbc;
 }
 
