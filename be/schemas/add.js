@@ -5,6 +5,6 @@ const addSchema = new mongoose.Schema({
         required:true
     }
 });
-const addItem = mongoose.model('products',addSchema);
+const addItem = mongoose.model('ecom',addSchema);
 module.exports = addItem;
 
