@@ -4,7 +4,7 @@ const addSchema = new mongoose.Schema({
         type: String,
         required:true
     }
-});
-const addItem = mongoose.model('ecom',addSchema);
+}, { collection: 'products' });
+const addItem = mongoose.model('products',addSchema);
 module.exports = addItem;
 
