@@ -2,23 +2,55 @@ import React from "react";
 import { useState } from "react";
 import Dash from "./dash.js";
 
-export default function Login () {
+export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isLogged, setIsLogged] = useState(false);
+    const [credentials, setcredentials] = useState('')
     const admin = [
+
+        {
+            user: "prerit",
+            pass: "p1234"
+        },
         {
             user: "nitin",
-            pass: "nitin",
+            pass: "n1234",
         },
+        {
+            user: "sen",
+            pass: "s1234"
+        }
     ];
 
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     if (username === admin[0].user && password === admin[0].pass) {
+    //         setIsLogged(true);
+    //     } else {
+    //         alert("Invalid Credentials try again ");
+    //     }
+    // };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (username === admin[0].user && password === admin[0].pass) {
-            setIsLogged(true);
-        } else {
-            alert("Invalid Credentials try again ");
+
+        admin.map((users) => {
+            if (username === users.user && password === users.pass) {
+                setIsLogged(true);
+            }
+            else {
+                setUsername('')
+                setPassword('')
+            }
+        });
+
+
+        if(!isLogged){
+            // alert("Invalid Credentials try again ");
+            setUsername('')
+            setPassword('')
+            setcredentials("*Invalid Credentials try again ")
         }
     };
 
@@ -53,6 +85,8 @@ export default function Login () {
                                         className="w-[300px] h-[40px] border-2 border-gray-300 rounded-md pl-2 required:"
                                     />
                                 </div>
+                                <div> <p className="text-red-700">{credentials}</p></div>
+
 
                                 <button
                                     type="submit"
